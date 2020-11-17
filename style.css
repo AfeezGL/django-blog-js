@@ -31,3 +31,21 @@ article {
 img {
     width: 100%;
 } 
+footer {
+    position: fixed;
+    bottom: 0;
+    background: blue;
+    width: 100%;
+    max-width: 500px;
+    font-size: 2rem;
+    padding: .5rem;
+}
+nav ul{
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+    gap: 1rem;
+}
+nav ul li {
+    width: 100%;
+}
