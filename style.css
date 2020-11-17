@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+img {
+    width: 100%;
+} 
