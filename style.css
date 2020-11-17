@@ -24,6 +24,10 @@ header{
     gap: 1rem;
     margin-top: 1rem;
 }
+article {
+    background-color: #d6d6d6;
+    padding: .5rem;
+}
 img {
     width: 100%;
 } 
