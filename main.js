@@ -10,7 +10,7 @@ fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
         let article = `<article>
                             <image src = "${post.image}">
                             <h4>${post.title}</h4>
-                            <p>${post.short_text}
+                            <p>${post.short_text}...</p>
                         </article>`
         container.innerHTML += article;
     });
