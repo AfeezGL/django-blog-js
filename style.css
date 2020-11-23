@@ -49,3 +49,17 @@ nav ul{
 nav ul li {
     width: 100%;
 }
+.login-form {
+    display: none;
+    flex-direction: column;
+}
+.create-article{
+    display: none;
+}
+.create-article-form {
+    display: none;
+    flex-direction: column;
+}
+form button{
+    margin-top: 1rem;
+}
