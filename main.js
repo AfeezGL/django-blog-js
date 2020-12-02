@@ -2,14 +2,17 @@ const container = document.querySelector(".container")
 const createButton = document.querySelector('#create-article')
 const loginForm = document.querySelector('.login-form')
 const createArticleForm = document.querySelector('.create-article-form')
-var isAuthenticated = false
-var authToken = ""
+var isAuthenticated = localStorage.getItem('isAuthenticated')
+var authToken = window.localStorage.getItem('authToken')
+console.log(isAuthenticated)
 
 createButton.addEventListener( 'click', function(){
     container.innerHTML = ""
-    if (isAuthenticated){
+    if (isAuthenticated == "true"){
         createArticleForm.style.display = "flex"
+        loginForm.style.display = "none"
     }else {
+        createArticleForm.style.display = "none"
         loginForm.style.display = "flex"
     }
 })
@@ -20,7 +23,7 @@ loginButton.addEventListener('click', function(e){
     let username = document.querySelector('#username').value
     let password = document.querySelector('#password').value
 
-    fetch("https://prj-django-blog/api/login", {
+    fetch("https://prj-django-blog.herokuapp.com/api/login", {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -35,18 +38,20 @@ loginButton.addEventListener('click', function(e){
     .then((data) => {
         console.log(data)
         if (data.token){
-            isAuthenticated = true
-            authToken = data.token
+            let Authenticated = true
+            window.localStorage.setItem('isAuthenticated', Authenticated)
+            let Token = data.token
+            window.localStorage.setItem('authToken', Token)
             loginForm.style.display = "none"
             createArticleForm.style.display = "flex"
         }else {
-            alert(data)
+            alert(data.non_field_errors[0])
         }
     })
-    .catch((error) => alert(error))
+    .catch((error) => alert(error.message))
 })
 
-fetch ("https://prj-django-blog/api/articles/",
+fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
 {headers: {
     "Content-Type": "application/json",
 }})

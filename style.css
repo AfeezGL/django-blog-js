@@ -50,16 +50,16 @@ nav ul li {
     width: 100%;
 }
 .login-form {
-    display: none;
+    display: flex;
     flex-direction: column;
 }
-.create-article{
-    display: none;
-}
 .create-article-form {
-    display: none;
+    display: flex;
     flex-direction: column;
 }
 form button{
     margin-top: 1rem;
+}
+input, textarea {
+    padding: .5rem;
 }
