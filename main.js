@@ -79,7 +79,7 @@ articleSubmitButton.addEventListener('click', function(e){
         method: "POST",
         headers: {
             "Content-Type": "multipart/form-data",
-            "Authentication": `Token ${authToken}`,
+            "WWW-Authenticate": `Token ${authToken}`,
             "Origin": "https://afeezgl.github.io"
         },
         body: JSON.stringify({
