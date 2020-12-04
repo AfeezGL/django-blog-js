@@ -72,16 +72,15 @@ loginButton.addEventListener('click', function(e){
 
 articleSubmitButton.addEventListener('click', function(e){
     e.preventDefault()
-    let image = document.querySelector('#image').value
-    let title = document.querySelector('#title').value
-    let articleBody = document.querySelector('#articleBody').value
+    const image = document.querySelector('#image').value
+    const title = document.querySelector('#title').value
+    const articleBody = document.querySelector('#articleBody').value
 
     fetch("https://prj-django-blog.herokuapp.com/api/articles/", {
         method: "POST",
         headers: {
             "Content-Type": "multipart/form-data",
             "Authorization": `Token ${authToken}`,
-            "Origin": "https://afeezgl.github.io"
         },
         body: JSON.stringify({
             "image": image,
