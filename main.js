@@ -10,7 +10,7 @@ console.log(isAuthenticated)
 fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
 {headers: {
     "Content-Type": "application/json",
-    "Authentication": `Token ${authToken}`,
+    "Authorization": `Token ${authToken}`,
 }})
 .then(res => res.json())
 .then((posts) => {
@@ -80,7 +80,7 @@ articleSubmitButton.addEventListener('click', function(e){
         method: "POST",
         headers: {
             "Content-Type": "multipart/form-data",
-            "Authentication": `Token ${authToken}`,
+            "Authorization": `Token ${authToken}`,
             "Origin": "https://afeezgl.github.io"
         },
         body: JSON.stringify({
