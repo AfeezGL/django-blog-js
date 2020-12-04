@@ -17,22 +17,22 @@
     </div>
     <div class = "login">
         <form class="login-form">
-            <label>Username</label>
-            <input type = "text" id = "username">
-            <label>Password</label>
-            <input type = "password" id = "password">
-            <button id="loginSubmit">Login</button>
+            <label for="username">Username</label>
+            <input type = "text" name="username">
+            <label for="password">Password</label>
+            <input type = "password" name = "password">
+            <input type="submit" value="Login" class="btn">
         </form>
     </div>
     <div class = "crate-article">
-        <form class="create-article-form">
+        <form class="create-article-form" id = "create-article-form">
             <label for="image">Image</label>
             <input type="file" name="image" id="image">
-            <label>Title</label>
-            <input type = "text" id = "title">
-            <label>Body</label>
-            <textarea name="articleBody" id="articleBody" cols="30" rows="10"></textarea>
-            <button id="articleSubmit">Submit</button>
+            <label for="title">Title</label>
+            <input type = "text" id = "title" name="title">
+            <label for="body">Body</label>
+            <textarea name="body" id="articleBody" cols="30" rows="10"></textarea>
+            <input type="submit" id="articleSubmit">
         </form>
     </div>
     <footer>

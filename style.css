@@ -57,8 +57,9 @@ nav ul li {
     display: flex;
     flex-direction: column;
 }
-form button{
+.btn{
     margin-top: 1rem;
+    padding: .5rem;
 }
 input, textarea {
     padding: 0 .5rem;

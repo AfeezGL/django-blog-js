@@ -36,11 +36,10 @@ createButton.addEventListener( 'click', function(){
     }
 })
 
-const loginButton = document.querySelector('#loginSubmit')
-loginButton.addEventListener('click', function(e){
+loginForm.addEventListener('submit', function(e){
     e.preventDefault()
-    let username = document.querySelector('#username').value
-    let password = document.querySelector('#password').value
+    
+    let formData = new FormData(this)
 
     fetch("https://prj-django-blog.herokuapp.com/api/login", {
         method: "POST",
@@ -48,10 +47,7 @@ loginButton.addEventListener('click', function(e){
             "Content-type": "application/json",
             
         },
-        body: JSON.stringify({
-            "username": username,
-            "password": password
-        })
+        body: formData
     })
     .then(res => res.json())
     .then((data) => {
@@ -70,23 +66,16 @@ loginButton.addEventListener('click', function(e){
     .catch((error) => alert(error.message))
 })
 
-articleSubmitButton.addEventListener('click', function(e){
+createArticleForm.addEventListener('submit', function(e){
     e.preventDefault()
-    const image = document.querySelector('#image').value
-    const title = document.querySelector('#title').value
-    const articleBody = document.querySelector('#articleBody').value
+    let formData = new FormData(this)
 
     fetch("https://prj-django-blog.herokuapp.com/api/articles/", {
         method: "POST",
         headers: {
-            "Content-Type": "multipart/form-data",
             "Authorization": `Token ${authToken}`,
         },
-        body: JSON.stringify({
-            "image": image,
-            "title": title,
-            "body": articleBody
-        })
+        body: formData
     })
     .then(res => res.json())
     .then((data) => console.log(data))
