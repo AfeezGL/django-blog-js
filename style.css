@@ -49,7 +49,7 @@ nav ul{
 nav ul li {
     width: 100%;
 }
-.login-form {
+#login-form {
     display: flex;
     flex-direction: column;
 }
