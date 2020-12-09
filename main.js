@@ -55,9 +55,6 @@ loginForm.addEventListener('submit', function(e){
 
     fetch("https://prj-django-blog.herokuapp.com/api/login", {
         method: "POST",
-        headers: {
-            "Content-type": "application/json",
-        },
         body: formData
     })
     .then(res => res.json())
@@ -90,6 +87,12 @@ createArticleForm.addEventListener('submit', function(e){
         body: formData
     })
     .then(res => res.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+        console.log(data)
+        if (data.detail || data.detail == "Invalid token."){
+            loginForm.style.display = "flex"
+            alert("please login")
+        }
+    })
     .catch((error) => alert(error.message))
 })
