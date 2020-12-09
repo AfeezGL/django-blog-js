@@ -1,6 +1,6 @@
 const container = document.querySelector(".container")
 const createButton = document.querySelector('#create-article')
-const loginForm = document.querySelector('.login-form')
+const loginForm = document.querySelector('#login-form')
 const createArticleForm = document.querySelector('.create-article-form')
 const articleSubmitButton = document.querySelector('#articleSubmit')
 var isAuthenticated = localStorage.getItem('isAuthenticated')
@@ -10,7 +10,6 @@ console.log(isAuthenticated)
 fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
 {headers: {
     "Content-Type": "application/json",
-    "Authorization": `Token ${authToken}`,
 }})
 .then(res => res.json())
 .then((posts) => {
@@ -45,7 +44,6 @@ loginForm.addEventListener('submit', function(e){
         method: "POST",
         headers: {
             "Content-type": "application/json",
-            
         },
         body: formData
     })
