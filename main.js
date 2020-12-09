@@ -1,11 +1,21 @@
 const container = document.querySelector(".container")
 const createButton = document.querySelector('#create-article')
+const forms = document.querySelector('.forms')
 const loginForm = document.querySelector('#login-form')
 const createArticleForm = document.querySelector('.create-article-form')
 const articleSubmitButton = document.querySelector('#articleSubmit')
 var isAuthenticated = localStorage.getItem('isAuthenticated')
 var authToken = window.localStorage.getItem('authToken')
 console.log(isAuthenticated)
+
+
+if (isAuthenticated == "true"){
+    createArticleForm.style.display = "flex"
+    loginForm.style.display = "none"
+}else {
+    createArticleForm.style.display = "none"
+    loginForm.style.display = "flex"
+}
 
 fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
 {headers: {
@@ -24,8 +34,8 @@ fetch ("https://prj-django-blog.herokuapp.com/api/articles/",
     });
 })
 
+
 createButton.addEventListener( 'click', function(){
-    container.innerHTML = ""
     if (isAuthenticated == "true"){
         createArticleForm.style.display = "flex"
         loginForm.style.display = "none"
@@ -33,8 +43,11 @@ createButton.addEventListener( 'click', function(){
         createArticleForm.style.display = "none"
         loginForm.style.display = "flex"
     }
+    forms.scrollIntoView()
 })
 
+
+// LOGIN
 loginForm.addEventListener('submit', function(e){
     e.preventDefault()
     
@@ -64,6 +77,7 @@ loginForm.addEventListener('submit', function(e){
     .catch((error) => alert(error.message))
 })
 
+// CREATE ARTICLE
 createArticleForm.addEventListener('submit', function(e){
     e.preventDefault()
     let formData = new FormData(this)
