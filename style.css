@@ -41,16 +41,19 @@ footer {
     background: blue;
     width: 100%;
     font-size: 2rem;
-    padding: .5rem;
 }
-nav ul{
-    list-style-type: none;
+nav {
     display: flex;
     text-align: center;
     gap: 1rem;
-}
-nav ul li {
     width: 100%;
+}
+nav button {
+    width: 100%;
+    background: blue;
+    border: 1px;
+    font-size: 1.5rem;
+    padding: .5rem;
 }
 #login-form {
     display: flex;
